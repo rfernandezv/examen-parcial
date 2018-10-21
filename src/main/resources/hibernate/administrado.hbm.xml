@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.administrado.domain.entity">
+  <class name="Administrado" table="administrado">
+    <id column="administrado_id" name="id">
+      <generator class="native"/>
+    </id>
+    <property column="first_name" name="firstName" not-null="true"/>
+    <property column="last_name" name="lastName" not-null="true"/>
+    <property column="identity_document" name="identityDocument" not-null="true"/>
+    <property column="active" name="isActive" not-null="true"/>
+    <set cascade="all" inverse="true" name="recibos">
+      <key column="administrado_id" not-null="true"/>
+      <one-to-many class="app.recibo.domain.entity.Recibo"/>
+    </set>
+    <set cascade="all" inverse="true" name="armas">
+      <key column="administrado_id" not-null="true"/>
+      <one-to-many class="app.arma.domain.entity.Arma"/>
+    </set>
+  </class>
+</hibernate-mapping>

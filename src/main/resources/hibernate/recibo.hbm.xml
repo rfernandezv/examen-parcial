@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" package="app.recibo.domain.entity">
+  <class name="Recibo" table="recibo">
+    <id column="recibo_id" name="id">
+      <generator class="native"/>
+    </id>
+    <property column="code" name="code" not-null="true"/>
+    <property column="process" name="process" not-null="true"/>
+    <component class="app.common.domain.valueobject.Money" name="balance">
+      <property column="balance" name="amount" not-null="true"/>
+      <property column="currency" name="currency" not-null="true"/>
+    </component>
+    <property column="locked" name="isLocked"/>
+    <many-to-one class="app.administrado.domain.entity.Administrado" column="administrado_id" name="administrado" not-null="true"/>
+  </class>
+</hibernate-mapping>

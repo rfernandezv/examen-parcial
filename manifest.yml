@@ -1,0 +1,7 @@
+---
+applications:
+- name: examenv2
+  path: /home/travis/build/rfernandezv/ExamenFinalApiv2/target/examen-0.0.1-SNAPSHOT.jar
+  memory: 1024M
+  instances: 1
+  random-route: true
