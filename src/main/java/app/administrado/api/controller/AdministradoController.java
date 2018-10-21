@@ -52,7 +52,7 @@ public class AdministradoController {
                 Administrado administrado = administradoCreateAssembler.toEntity(administradoCreateDto);
                 administradoRepository.create(administrado);
                 unitOfWork.commit(status);
-                //sender.sendMessage(""+administrado.getId());
+                sender.sendMessage(""+administrado.getId());
                 AdministradoDto administradoResponse = administradoCreateAssembler.toDto(administrado);                
                 return new ResponseEntity<Object>(administradoResponse, HttpStatus.CREATED);
             } catch(IllegalArgumentException ex) {

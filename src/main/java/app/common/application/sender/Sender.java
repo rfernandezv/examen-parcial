@@ -14,12 +14,9 @@ public class Sender {
         private String urlRabbit;
     
         public boolean sendMessage(String message) throws Exception {
-            //String url = System.getenv().get("RABBITMQ_URL");
-            
-            //System.err.println("url Rabbit: " + urlRabbit);
-            
             ConnectionFactory factory = new ConnectionFactory();
-            factory.setUri(urlRabbit);
+            factory.setUri(urlRabbit);            
+            System.err.println(urlRabbit);            
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
 
